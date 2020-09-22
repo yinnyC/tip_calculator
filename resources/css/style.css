@@ -3,7 +3,7 @@ main {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	width: 300px;
+	width: 500px;
 	margin-left: 2em;
 	border: 5px solid;
 	padding: 20px;
@@ -12,7 +12,7 @@ main {
 .label,
 .input,
 #display {
-	padding: 1em;
+	padding: 20px;
 	font-size: 20px;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

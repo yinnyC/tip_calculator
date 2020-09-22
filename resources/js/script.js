@@ -17,6 +17,15 @@ function calculateTip() {
 	console.log('displaytip is', displayTip);
 	console.log('displaytotal is', displayTotal);
 }
+
+function addOne(obj) {
+	obj += 1;
+	obj.innerHTML = obj;
+	return;
+}
+console.log(billInput.value);
+addOne(parseInt(billInput.value));
+console.log(billInput.value);
 billInput.addEventListener('input', calculateTip);
 tipInput.addEventListener('input', calculateTip);
 peopleInput.addEventListener('input', calculateTip);

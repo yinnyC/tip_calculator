@@ -9,12 +9,31 @@
 	<body>
 		<main>
 			<div><h1>Tip Calc</h1></div>
-			<label class="label"> Bill</label>
-			<input class="input" id="bill" value="10.00" type="number" />
-			<label class="label"> Tip %</label>
-			<input class="input" id="tip" value="15.00" type="number" />
-			<label class="label"> People</label>
-			<input class="input" id="people" value="1.00" type="number" />
+			<div class="row">
+				<label class="label"> Bill</label>
+				<div>
+					<button class="add-one">+</button>
+					<input class="input" id="bill" value="10.00" type="number" />
+					<button class="minus-one">-</button>
+				</div>
+			</div>
+			<div class="row">
+				<label class="label"> Tip %</label>
+				<div>
+					<button class="add-one">+</button>
+					<input class="input" id="tip" value="15.00" type="number" />
+					<button class="minus-one">-</button>
+				</div>
+			</div>
+			<div class="row">
+				<label class="label"> People</label>
+				<div>
+					<button class="add-one">+</button>
+					<input class="input" id="people" value="1.00" type="number" />
+					<button class="minus-one">-</button>
+				</div>
+			</div>
+
 			<label class="label"> Tip Total</label>
 			<div id="display-tip-total">0.00</div>
 			<label class="label"> Total Cost</label>
