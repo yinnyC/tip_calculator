@@ -1,0 +1,18 @@
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 300px;
+	margin-left: 2em;
+	border: 5px solid;
+	padding: 20px;
+}
+
+.label,
+.input,
+#display {
+	padding: 1em;
+	font-size: 20px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
