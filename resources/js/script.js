@@ -2,15 +2,17 @@ const display = document.querySelector('#display');
 const billInput = document.querySelector('#bill');
 const tipInput = document.querySelector('#tip');
 const peopleInput = document.querySelector('#people');
-console.log(display.innerHTML); // prints the text inside the tags
-console.log(billInput.value); // prints the value entered into the input
-console.log(peopleInput.value);
+
 function calculateTip() {
-	const billValue = billInput.value;
-	const tipValue = tipInput.value;
-	const pepleValue = peopleInput.value;
+	const billValue = parseInt(billInput.value);
+	const tipValue = parseInt(tipInput.value);
+	const pepleValue = parseInt(peopleInput.value);
+	console.log('bill is', billValue);
+	console.log('tip is', tipValue);
+	console.log('ppl is', pepleValue);
 	const tipAmount = (billValue * (tipValue / 100)) / pepleValue;
-	display.innerHTML = tipAmount.toFixed(2);
+	console.log(tipAmount);
+	display.innerHTML = tipAmount;
 }
 billInput.addEventListener('input', calculateTip);
 tipInput.addEventListener('input', calculateTip);
