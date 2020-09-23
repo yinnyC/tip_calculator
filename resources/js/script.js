@@ -9,6 +9,10 @@ function calculateTip() {
 	const billValue = parseInt(billInput.value);
 	const tipValue = parseInt(tipInput.value);
 	const pepleValue = parseInt(peopleInput.value);
+	if (isNaN(billValue) || isNaN(tipValue) || isNaN(pepleValue)) {
+		console.log(`Please Enter A Number`);
+		return;
+	}
 	const tipAmount = parseFloat(
 		((billValue * (tipValue / 100)) / pepleValue).toFixed(2)
 	);
@@ -21,11 +25,13 @@ tipInput.addEventListener('input', calculateTip);
 peopleInput.addEventListener('input', calculateTip);
 
 // Add one
-function addOne(inputValue) {
+function addOne(inputValue, upperbound = 100) {
 	let originalValue = parseInt(inputValue.value);
-	originalValue += 1;
-	inputValue.value = originalValue;
-	calculateTip();
+	if (originalValue < upperbound) {
+		originalValue += 1;
+		inputValue.value = originalValue;
+		calculateTip();
+	}
 }
 // Minus One
 function minusOne(inputValue, lowerbound) {
