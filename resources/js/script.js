@@ -1,9 +1,10 @@
-const displayTip = document.querySelector('#display-tip-total');
-const displayTotal = document.querySelector('#display-total-cost');
+const displayTip = document.querySelector('#tip-amount');
+const displayTotal = document.querySelector('#total-amount');
 const billInput = document.querySelector('#bill');
 const tipInput = document.querySelector('#tip');
 const peopleInput = document.querySelector('#people');
 
+// Calculate Tip and Total
 function calculateTip() {
 	const billValue = parseInt(billInput.value);
 	const tipValue = parseInt(tipInput.value);
@@ -11,21 +12,44 @@ function calculateTip() {
 	const tipAmount = parseFloat(
 		((billValue * (tipValue / 100)) / pepleValue).toFixed(2)
 	);
-	console.log(tipAmount);
-	displayTip.innerHTML = tipAmount;
-	displayTotal.innerHTML = tipAmount + billValue;
-	console.log('displaytip is', displayTip);
-	console.log('displaytotal is', displayTotal);
+	const totalAmount = (tipAmount + billValue).toFixed(2);
+	displayTip.innerHTML = `$${tipAmount}`;
+	displayTotal.innerHTML = `$${totalAmount}`;
 }
-
-function addOne(obj) {
-	obj += 1;
-	obj.innerHTML = obj;
-	return;
-}
-console.log(billInput.value);
-addOne(parseInt(billInput.value));
-console.log(billInput.value);
 billInput.addEventListener('input', calculateTip);
 tipInput.addEventListener('input', calculateTip);
 peopleInput.addEventListener('input', calculateTip);
+
+// Add one
+function addOne(inputValue) {
+	let originalValue = parseInt(inputValue.value);
+	originalValue += 1;
+	inputValue.value = originalValue;
+	calculateTip();
+}
+// Minus One
+function minusOne(inputValue, lowerbound) {
+	let originalValue = parseInt(inputValue.value);
+	if (originalValue > lowerbound) {
+		originalValue -= 1;
+		inputValue.value = originalValue;
+		calculateTip();
+	}
+}
+// Handle +/- buttons
+const allbuttons = document.getElementById('left-column');
+allbuttons.onclick = function (e) {
+	if (e.target && e.target.classList.contains('add-one')) {
+		if (e.target.dataset.name === 'tip') {
+			addOne(tipInput);
+		} else if (e.target.dataset.name === 'people') {
+			addOne(peopleInput);
+		}
+	} else if (e.target && e.target.classList.contains('minus-one')) {
+		if (e.target.dataset.name === 'tip') {
+			minusOne(tipInput, 0);
+		} else if (e.target.dataset.name === 'people') {
+			minusOne(peopleInput, 1);
+		}
+	}
+};
